@@ -36,5 +36,7 @@ Route::post('/logout', [logincontroller::class, 'logout']);
 
 Route::get('/register', [registercontroller::class, 'index']);
 
-Route::get('/dashboard', [dashboardcontroller::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');
     
