@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String('tittle', 150);
             $table->String('penerbit', 150);
+            $table->String('authors');
             $table->timestamps();
         });
     }

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\registercontroller;
+use App\Http\Controllers\dashboardcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,14 @@ Route::get('/buku', function () {
         "title" => "Buku"
     ]);
 });
+
+
+
+Route::get('/login', [logincontroller::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [logincontroller::class, 'authenticate']);
+Route::post('/logout', [logincontroller::class, 'logout']);
+
+Route::get('/register', [registercontroller::class, 'index']);
+
+Route::get('/dashboard', [dashboardcontroller::class, 'index'])->middleware('auth');
+    
