@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
-            $table->bigIncrements('id_buku');
-            $table->String('title', 150);
-            $table->String('penulis');
-            $table->String('penerbit', 150);
-            $table->String('tahun_terbit', 5);
+        Schema::create('kembali', function (Blueprint $table) {
+            $table->id('id_kembali');
+            $table->date('tgl_kembali');
+            $table->foreignId('id_pinjam');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('kembali');
     }
 };
