@@ -19,7 +19,7 @@
   <body>
 
 {{-- disini kita memasukkan navbar dari partials menggunakan include --}}
-    @include('partials.navbar')
+    {{-- @include('partials.navbar') --}}
 
     <div class="container mt-4"> 
         @yield('container')
